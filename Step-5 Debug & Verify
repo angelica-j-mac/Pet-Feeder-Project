@@ -1,0 +1,36 @@
+Test your logic with some sample scenarios. Have a look at the following examples:
+-	Pet eats as expected
+-	Pet does not eat
+-	Food bin is empty
+-	Compare output with expectations
+-	Suggest improvements
+Deliverable: Test outputs, discussion of logic, and system refinements.
+
+Preview of key lines:
+
+•	Scenario A (pet eats):
+Dispensed 60g… Monitoring 10 min: pet ate ~51g.
+
+•	Scenario B (pet does not eat):
+Dispensed 120g… [WARN] Monitoring 10 min: food not eaten.
+
+•	Scenario C (bin empty):
+[ERROR] Bin empty: cannot dispense.
+
+•	Scenario D (bowl nearly full / partial):
+(Will show “Partial dispense… bowl capacity would overflow” and a smaller dispense, then “pet ate ~…g.”)
+
+
+b. Discussion of Logic
+•	On feeding time: The feeder check the RTC against the schedule (SCHED)
+When both match, it starts the feed cycle.
+•	Safe portion. It decides a planned portion (PORTION) from the pet type (e.g cat = 80 grams & dog = 160 grams). Then limits the real amount by the bin level and bowl capacity left (CAP = MAX_BOWL – BOWL) to get ACTUAL
+•	No overflow because ACTUAL = min(PORTION, BIN, CAP), the bowl never goes above its max (e.g. 500 grams)
+•	How ALRTS work:
+
+•	Empty  Bin -> ERROR alert and stop
+•	Bowl Full / not enough space -> WARN partial or stop
+•	Pet not eating (Bowl weight unchanged after 10 mins) -> WARN Pet not eating
+
+•	Logging, Every action (e.g. new bin / bowl weights, alerts, dispense amount) is logged within a timestamp. This helps staff to see what is happening.
+ 
