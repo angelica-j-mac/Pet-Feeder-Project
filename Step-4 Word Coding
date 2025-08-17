@@ -1,0 +1,37 @@
+Task 1: Check Feeding Time
+•	Read current time from RTC
+•	Compare it with the feeding schedule SCHED
+•	If RTC and SCHED matches, continue to the next task; else, stop and wait.
+
+Task 2: Check food bin
+•	Look at BIN (food grams in the bin)
+•	If BIN = 0, send ALRT_EMPTY, LOG issue, and STOP
+
+Task 3: Check bowl capacity
+•	Work out CAP = MAX_BOWL – BOWL
+•	If CAP <= 0, send ALRT_OVERFLOW, log “Bowl is FULL”, and STOP.
+
+Task 4: Decide portion size
+•	Set PORTION depending on PET_TYPE
+o	If PET_TYPE == cat, then PORTION = 80 grams
+o	If PET_TYPE == dog, then PORTION = 160 grams
+
+Task 5: Calculate safe dispense amount
+•	Work out ACTUAL = min (PORTION, BIN, CAP)
+•	If ACTUAL = 0, log “CANNOT DISPENSE” and STOP
+
+Task 6: Dispense Food
+•	Rotate the SERVO motor to release ACTUAL grams
+•	Update BIN = BIN – ACTUAL
+•	Update BOWL = BOWL + ACTUAL
+•	LOG action with time
+
+Task 7: Monitor pet eating
+•	Wait for 10 mins
+•	Check bowl weight again (BOWL)
+•	If no change, send ALRT_NOTE(“pet is not eating”)
+•	If food reduced, LOG “Pet ate food”
+
+Task 8: Finish cycle
+•	Save all LOGS and ALRT
+Return to idle until the next feeding time.
