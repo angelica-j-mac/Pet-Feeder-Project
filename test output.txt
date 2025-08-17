@@ -1,0 +1,25 @@
+\n===== DEMO: Automated Pet Feeder =====\n
+\n--- Scenario A: Pet eats as expected ---
+[05:07:21] === Cat feeding time reached (08:00) ===
+[05:07:21] Dispensed 60g. Bin now 940g; Bowl now 60g.
+[05:07:21] Monitoring 10 min: pet ate ~51g.
+[05:07:21] === Cat feeding time reached (18:00) ===
+[05:07:21] Dispensed 60g. Bin now 880g; Bowl now 69g.
+[05:07:21] Monitoring 10 min: pet ate ~51g.
+\n--- Scenario B: Pet does not eat ---
+[05:07:21] === Dog feeding time reached (08:00) ===
+[05:07:21] Dispensed 120g. Bin now 880g; Bowl now 120g.
+[05:07:21] [WARN] Monitoring 10 min: food not eaten.
+[05:07:21] === Dog feeding time reached (18:00) ===
+[05:07:21] Dispensed 120g. Bin now 760g; Bowl now 240g.
+[05:07:21] [WARN] Monitoring 10 min: food not eaten.
+\n--- Scenario C: Bin empty ---
+[05:07:21] === Cat feeding time reached (08:00) ===
+[05:07:21] [ERROR] Bin empty: cannot dispense.
+[05:07:21] === Cat feeding time reached (18:00) ===
+[05:07:21] [ERROR] Bin empty: cannot dispense.
+\n--- Scenario D: Bowl nearly full (partial dispense) ---
+[05:07:21] === Cat feeding time reached (08:00) ===
+[05:07:21] [WARN] Partial dispense: bowl capacity would overflow (remaining 20g).
+[05:07:21] Dispensed 20g. Bin now 980g; Bowl now 500g.
+[05:07:21] Monitoring 10 min: pet ate ~17g.
