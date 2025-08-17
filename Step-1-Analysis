@@ -1,1 +1,35 @@
+Your Challenge PART 1: On the Solving Problem Process
+Using the Integrated Problem-Solving Process, you will:
+
+1.	Analyse the problem and define its requirements.
+2.	Organise and describe all the data and inputs.
+3.	Design an algorithm to control the system.
+4.	Implement the solution using plain English.
+5.	Test and refine your solution with example input values.
+
+Step-by-Step Instructions
+
+Step 1: Understand and Define the Problem (Analyse)
+-	What features must the feeder include?
+-	What inputs and outputs are needed (e.g., feeding times, sensors)?
+-	What are possible assumptions or limitations (e.g., limited memory, one type of pet food)?
+
+Deliverable: Clear problem statement, assumptions, inputs/outputs, and a simple sketch or block diagram of the system.
+ 
+-----------------------------------------------------------------------------------------------------------------------
+The problem is how to make a simple machine that can feed pets like dogs and cats whenever their owner are not around. Pets need food at the right time and the right amount, and the machine must also tell us if something goes wrong.
+
+The feeder should:
+•	Give food at the correct times.
+•	Give the right amount of food for each pet.
+•	Stop if the bowl is already full.
+•	Warn if the food bin is empty.
+•	Alert if the pet does not eat.
+
+The solution should have the following:
+•	Clock to know the time
+•	Motor to drop the food
+•	Sensors to check the food in the bin and in the bowl.
+•	If problem occurs, the feeder will send alert to owners quickly.
+
 
